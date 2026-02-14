@@ -1,0 +1,29 @@
+# Pascal's Triangle using Binomial Coefficient
+
+def factorial(n):
+    """Return factorial of a number"""
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+
+def nCr(n, r):
+    """Return binomial coefficient (nCr)"""
+    return factorial(n) // (factorial(r) * factorial(n - r))
+
+
+def pascal_triangle(rows):
+    """Print Pascal's Triangle up to given rows"""
+    for n in range(rows):
+        for space in range(rows - n - 1):
+            print(" ", end="")
+        
+        for r in range(n + 1):
+            print(nCr(n, r), end=" ")
+        
+        print()
+
+
+# Take input from user
+rows = int(input("Enter number of rows: "))
+pascal_triangle(rows)
